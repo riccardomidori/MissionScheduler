@@ -1,6 +1,5 @@
 import base64
 import datetime
-
 import pandas as pd
 import requests as req
 from mysql import connector
@@ -80,15 +79,14 @@ def main(base_url="https://certmidori.fairconnect.it/Midori-EXT/Ned",
         token = response["message"]
         for house_id, owner_id in df["owner_id_login"].iteritems():
             o = str(owner_id)
-            if house_id == 91:
-                mission = req.post(base_url + f"/generamissione/{o}/{house_id}",
-                                   headers={"Authorization": token})
-                if mission.status_code == 200:
-                    print(mission.json())
-                else:
-                    print(mission)
+            print(o, house_id)
+            mission = req.post(base_url + f"/generamissione/{o}/{house_id}",
+                               headers={"Authorization": token})
+            if mission.status_code == 200:
+                print(mission.json())
+            else:
+                print(mission)
 
 
 if __name__ == '__main__':
-    token = generate_tag(None, 49, 493)
-    print(token)
+    main()
