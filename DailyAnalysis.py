@@ -24,6 +24,7 @@ SIZE = "Size"
 RENEWABLE = "Renewable"
 ELDERS = "num_anziani"
 
+
 mapper_device_name = {
     1: "lavastoviglie",
     2: "Asciugatrice",
